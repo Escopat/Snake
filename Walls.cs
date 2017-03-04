@@ -45,5 +45,32 @@ namespace Snake
                 wall.Draw();
             }
         }
+
+        public void GameOver()
+        {
+            int mapWidth = Console.BufferWidth;
+            int mapHaight = Console.BufferHeight;
+            string goText = "ИГРА ОКОНЧЕНА";
+            string goAuthor = "Автор: Валерий Курочкин, 2017г.";
+            string goGeek = "По урокам с сайта geekbrains.ru";
+
+
+            Console.SetCursorPosition((mapWidth / 2) - (goText.Length / 2), (mapHaight / 2) - 2);
+            Console.WriteLine(goText);
+            Console.SetCursorPosition((mapWidth / 2) - (goAuthor.Length / 2), (mapHaight / 2));
+            Console.WriteLine(goAuthor);
+            Console.SetCursorPosition((mapWidth / 2) - (goGeek.Length / 2), (mapHaight / 2) + 1);
+            Console.WriteLine(goGeek);
+
+
+            HorizontalLine UpLine = new HorizontalLine(mapWidth / 3 - 10, mapWidth - (mapWidth / 3) + 10, (mapHaight / 2) - 3, '=');
+            HorizontalLine DownLine = new HorizontalLine(mapWidth / 3 - 10, mapWidth - (mapWidth / 3) + 10, (mapHaight / 2) + 3, '=');
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            UpLine.Draw();
+            DownLine.Draw();
+
+            Console.ReadLine();
+        }
     }
 }

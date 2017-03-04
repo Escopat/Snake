@@ -30,6 +30,7 @@ namespace Snake
             {
                 if(walls.IsHit(snake) || snake.IsHitTail())
                 {
+                    walls.GameOver();
                     break;
                 }
 
