@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class HorizontalLine : Figure
+    class Snake : Figure
     {
-        public HorizontalLine(int xLeft, int xRight, int y, char sym)
+        public Snake(Point tail, int lenght, Direction direction)
         {
             plist = new List<Point>();
-
-            for(int x = xLeft; x <= xRight; x++)
+            for(int i = 0; i < lenght; i++)
             {
-                Point p = new Point(x, y, sym);
+                Point p = new Point(tail);
+                p.Move(i, direction);
                 plist.Add(p);
             }
-
         }
     }
 }
